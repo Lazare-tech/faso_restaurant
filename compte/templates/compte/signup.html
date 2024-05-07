@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% block content %}
+    <h1>Inscription</h1>
+    {% if form.errors%}
+        {{ forms.errors }}
+        {% endif %}
+        <form method="post">
+            {{ form.as_p }}
+            {% csrf_token %}
+            <button type="submit" >S’inscrire</button>
+        </form>
+{% endblock content %}

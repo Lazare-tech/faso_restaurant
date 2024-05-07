@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{% block title %}Restaurant{% endblock  %}</title>
+  </head>
+  <body>
+    <h1>faso Restaurant</h1>
+    {% block content %}{% endblock content %} 
+    {%  if user.is_authenticated %} {% if user.is_restaurant %}
+    <p>
+      Vous êtes connecté en tant que {{ request.user }} Restaurant.
+      <a href="{% url 'logout' %}">Se déconnecter</a>
+    </p>
+    {% else %}
+    <p>
+      Vous êtes connecté en tant que {{ request.user }} simple utilisateur.
+      <a href="{% url 'logout' %}">Se déconnecter</a>
+    </p>
+    {% endif %} {% endif %}
+  </body>
+</html>
